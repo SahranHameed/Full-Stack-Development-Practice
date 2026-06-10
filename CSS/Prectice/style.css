@@ -1,0 +1,12 @@
+li{
+    color: rgb(10, 246, 10);
+  }  
+
+.first{
+        color: blueviolet;
+      }
+
+li[draggable]
+      {
+        
+      }
