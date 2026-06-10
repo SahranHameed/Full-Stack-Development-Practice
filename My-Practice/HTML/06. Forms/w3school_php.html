@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> W3School_PHP_Form </title>
+</head>
+<body>
+    <h1 align="center"> <u> Job Application Form </u></h1>
+
+   <form method="post" align="center" enctype="multipart/form-data">
+
+        
+                  
+                        <label for="name"> Full Name: </label> <input type="text" name="name" size="45" maxlength="25" id="name"> 
+               
+                
+                        <label for="email">  Email Address: </label> <input type="email" name="email" size="45" maxlength="25" id="email"> 
+                 
+     
+                         <label for="number"> Contact Number: </label> <br> <textarea name="contact_number" cols="40" rows="5" maxlength="15" id="number"> </textarea>
+                         
+
+                         <label for="dob"> Date of Birth: </label> 
+                    <br> 
+                         <input type="date" name="DOB" id="dob">
+
+                         <label> Position Applied For: </label> <br>
+                         <select name="position applied for[]">
+                                 <option value="Software_Developer"> Software Developer </option>
+                                 <option value="Web_Designer"> WebDesigner </option>
+                                 <option value="Project_Manager"> Project Manager </option>
+                         </select>
+<br>
+
+                         <label for="resume"> Upload Resume: </label><br>
+                         <input type="file" name="Resume" id="resume">
+<br>
+
+                         <label for="letter"> Cover Letter: </label> <br> <textarea name="cover_letter" cols="40" rows="5" id="Letter"> </textarea>
+<br>
+
+                         <label for="linkedin"> LinkedIn Profile: </label> <br> <input type="url" name="linkedin_profile" id="linkedin">
+<br>
+                         <label for="experience"> Work Experience: </label> <br> <input type="number" name="work_experience" id="experience">
+ <br>
+                         <label for=""> <b> Skills </b> </label> <br> 
+                         <input type="checkbox" name="skills[]" value="html" id="HTML"> <label for="HTML"> <b> HTML </b></label>
+                         <input type="checkbox" name="skills[]" value="css" id="CSS"> <label for="CSS"> <b> CSS </b></label>
+                         <input type="checkbox" name="skills[]" value="java_skript" id="JAVA_SKRIPT"> <label for="JAVA_SCRIPT"> <b> JAVA SCRIPT </b></label>
+                         <input type="checkbox" name="skills[]" value="php" id="PHP"> <label for="PHP"> <b> PHP </b></label>
+                         <input type="checkbox" name="skills[]" value="java" id="JAVA"> <label for="JAVA"> <b> JAVA </b></label>
+                        
+
+                     <p>
+                         <label for=""> Courses: </label><br>
+                         <input type="checkbox" name="Courses[]" value="Software_Engineering" id="software"> <label for="software">Software Engineering </label>
+                         <input type="checkbox" name="Courses[]" value="Web_Development" id="web"> <label for="web"> Web Development </label>
+                         <input type="checkbox" name="Courses[]" value="Network_Engineering" id="network"> <label for="network"> Network Engineering </label>
+                    </p>
+                    <button type="button"> Apply </button>
+   </form>
+</body>
+</html>
