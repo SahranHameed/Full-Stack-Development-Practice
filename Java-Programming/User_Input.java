@@ -14,7 +14,6 @@ class user
     }
 }
 
-
 // Get User Input String Type 
 class user2
 {

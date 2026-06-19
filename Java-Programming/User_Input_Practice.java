@@ -2,6 +2,28 @@
 
 import java.util.Scanner;
 
+class User_Input_Practice 
+{
+    public static void main(String args[])
+    {
+        try (Scanner store = new Scanner(System.in))
+        {
+            String Name = store.nextLine();
+            double Score = store.nextDouble();
+            store.nextLine();
+            String department = store.nextLine();
+           
+            System.out.println("My Name is "+ Name);
+            System.out.println("My Score is "+ Score/10 +"/10");       
+            System.out.println("My Department is "+ department);        
+        }
+    }
+}
+
+
+/* 
+import java.util.Scanner;
+
 class Practice 
 {
     public static void main(String args[])
@@ -19,7 +41,7 @@ class Practice
         }
     }
 }
-
+*/
 
 /* 
 class test
