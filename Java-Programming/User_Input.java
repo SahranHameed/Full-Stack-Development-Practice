@@ -6,14 +6,11 @@ class user
 {
     public static void main(String args[])
     {
-        Scanner store = new Scanner(System.in);
-        int a = store.nextInt();
-
-        Scanner store2 = new Scanner(System.in);
-        int b = store2.nextInt();
-        
-        System.out.println(a + b);
-
+        try (Scanner store = new Scanner(System.in)) {
+            int a = store.nextInt();
+            int b = store.nextInt();
+            System.out.println(a + b);
+        }
     }
 }
 
@@ -23,14 +20,11 @@ class user2
 {
     public static void main(String args[])
     {
-        Scanner store = new Scanner(System.in);
-        String a = store.nextLine();
-
-        Scanner store2 = new Scanner(System.in);
-        String b = store2.nextLine();
-        
-        System.out.println(a + b);
-
+        try (Scanner store = new Scanner(System.in)) {
+            String a = store.nextLine();
+            String b = store.nextLine();
+            System.out.println(a + b);
+        }
     }
 }
 
