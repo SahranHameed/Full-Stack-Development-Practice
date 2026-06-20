@@ -13,7 +13,7 @@ public class VotingEligibility {
             int age = input.nextInt();
 
             // Validate age and check voting eligibility
-
+            System.out.println();
             if (age < 0 || age > 150) {
                 System.out.println("Invalid Age! Please enter a valid age.");
 
