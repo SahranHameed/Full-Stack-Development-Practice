@@ -18,11 +18,14 @@ public class LargestOfTwo {
             System.out.println();
             if (number1 > number2) {
                 System.out.println("\n" + number1 + " is the Largest Number");
+
             } else if (number2 > number1) {
                 System.out.println(number2 + " is the Largest Number");
+
             } else {
                 System.out.println("\n" + " Both Numbers are Equal: " + number1);
             }
+            
             System.out.println("=============================");
         }
     }
