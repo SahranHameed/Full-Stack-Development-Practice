@@ -14,9 +14,11 @@ public class EvenOddCheck {
             // Check divisibility by 2
             if (number % 2 == 0) {
                 System.out.println("\n" + number + " is an Even Number");
+
             } else {
                 System.out.println("\n" + number + " is an Odd Number");
             }
+            
             System.out.println("=============================");
         }
     }
