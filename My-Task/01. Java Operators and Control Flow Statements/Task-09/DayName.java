@@ -35,9 +35,8 @@ public class DayName {
                     System.out.println("Day " + day + " : Sunday");
                     break;
                 default:
-                    System.out.println("⚠ Invalid Day! Enter a number between 1 and 7.");
+                    System.out.println("Invalid Day! Enter a number between 1 and 7.");
             }
-
             System.out.println("=============================");
         }
     }
