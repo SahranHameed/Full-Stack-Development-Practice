@@ -1,5 +1,4 @@
 // Get User Input Intiger Type 
-
 import java.util.Scanner;
 
 class User_Input_Practice 
@@ -20,8 +19,7 @@ class User_Input_Practice
     }
 }
 
-
-/* 
+////////////////////////////////////////////////
 import java.util.Scanner;
 
 class Practice 
@@ -41,9 +39,8 @@ class Practice
         }
     }
 }
-*/
 
-/* 
+/////////////////////////////
 class test
 {
     public static void main(String args[])
@@ -61,4 +58,3 @@ class test
         }
     }
 }
-*/
