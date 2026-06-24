@@ -1,13 +1,13 @@
-/*public class Operator {
+public class Operator {
 
     public static void main(String[] args) {
     int a = 10;
     int b = 20;
     System.out.print(a%b);
 }
-}*/
+}
 
-/*// Unary Operator
+// Unary Operator
 public class Operator {
 
     public static void main(String[] args) {
@@ -23,7 +23,7 @@ public class Operator {
     System.out.println("After Decrement Variable a :" + --b); // Value = 9
  
 }
-}*/
+}
 
 // Assignment Operator
 public class Operator {
