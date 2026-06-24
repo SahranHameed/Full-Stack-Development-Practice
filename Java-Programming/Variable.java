@@ -7,7 +7,7 @@ public class Variable
     }
 }
 
-/* 
+
 // Instant Variable Access//
 public class Variable 
 {
@@ -18,12 +18,9 @@ public class Variable
         System.out.print(object.a);   
     }
 }
-*/
 
 
 // Local Variable Access//
- 
-/*
 public class Variable 
 {
    int a = 10;
@@ -32,5 +29,4 @@ public class Variable
             System.out.print(a);   
     }
 }
-*/
     
