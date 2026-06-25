@@ -18,30 +18,41 @@ public class Coding_Challenge {
 */
 
 /*
-// Find out Whether Number is Divisible by 3 or 5
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Enter the Number: ");
+
+
+// Example Using if, else if
+/*      Scanner scan = new Scanner(System.in);
+        System.out.println("Enter Your Exam Mark: ");
         int number = scan.nextInt();
 
-        if (number%3 == 0 && number%5 == 0) {
-            System.out.println("Can Divide by 3 and 5");
+        if (number>=35 && number<60) {
+            System.out.println("Video Game");
         }
-        else{
-            System.out.println("Can't Divided");
+        else if (number>=60 && number<90) 
+            {
+            System.out.println("Iphone");
+        }
+        else if (number>=90) {
+            System.out.println("MacBook Pro");
         }
 */
 
-// Find out Whether Number is Even or Odd
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Enter the Number: ");
-        int number = scan.nextInt();
 
-        if (number%2 == 0 && number%1 == 0) {
-            System.out.println("The Number is Even");
-        }
-        else{
-            System.out.println("The Number is Odd");
-        }
+// Example Using if, else if, Nested if
+     boolean kfc = true;
+     boolean chicken = true;
+     boolean pepsi = true;
 
+        if (kfc) {
+            System.out.println("Enter Into KFC");
+            
+            if (chicken) {
+                System.out.println("Eating Chicken");
+
+                if(pepsi){
+                    System.out.println("Drinking Pepsi");
+                }
+            }
+        }
     }
 } 
