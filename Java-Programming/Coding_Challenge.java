@@ -3,8 +3,7 @@ import java.util.Scanner;
 public class Coding_Challenge {
 
     public static void main(String args[])
-    {
-    
+    {  
 /* 
         Scanner store = new Scanner(System.in);
         System.out.println("Enter Your Mark: ");
@@ -18,9 +17,10 @@ public class Coding_Challenge {
         }
 */
 
+/////////////////////////////////////////////////////////
 
 // Example Using if, else if
-/*      Scanner scan = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
         System.out.println("Enter Your Exam Mark: ");
         int number = scan.nextInt();
 
@@ -34,7 +34,5 @@ public class Coding_Challenge {
         else if (number>=90) {
             System.out.println("MacBook Pro");
         }
-*/
-
     }
 } 
