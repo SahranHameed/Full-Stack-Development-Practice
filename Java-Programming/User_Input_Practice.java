@@ -20,7 +20,6 @@ class User_Input_Practice
 }
 
 ////////////////////////////////////////////////
-import java.util.Scanner;
 
 class Practice 
 {
