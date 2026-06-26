@@ -5,7 +5,7 @@ public class If_Else {
     
     public static void main(String args[])
     {   
-    Scanner scan = new Scanner(System.in);
+    try (Scanner scan = new Scanner(System.in)) {
         System.out.println("Enter the Number: ");
         int number = scan.nextInt();
 
@@ -14,7 +14,8 @@ public class If_Else {
         }
         else{
             System.out.println("Can't Divided");
-        }  
+        }
+    }  
 
         
 // Find out Whether Number is Even or Odd
