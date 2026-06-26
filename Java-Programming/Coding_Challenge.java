@@ -20,9 +20,9 @@ public class Coding_Challenge {
 /////////////////////////////////////////////////////////
 
 // Example Using if, else if
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Enter Your Exam Mark: ");
-        int number = scan.nextInt();
+        try (Scanner scan = new Scanner(System.in)) {
+            System.out.println("Enter Your Exam Mark: ");
+            int number = scan.nextInt();
 
         if (number>=35 && number<60) {
             System.out.println("Video Game");
@@ -33,6 +33,7 @@ public class Coding_Challenge {
         }
         else if (number>=90) {
             System.out.println("MacBook Pro");
+        }
         }
     }
 } 
