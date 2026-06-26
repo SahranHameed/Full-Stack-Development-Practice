@@ -1,4 +1,7 @@
 public class Nested_If {
+    public static void main(String args[]){
+
+        
     // Example Using if, else if, Nested if
      boolean kfc = true;
      boolean chicken = true;
@@ -15,4 +18,6 @@ public class Nested_If {
                 }
             }
         }
+    }
+
 }
