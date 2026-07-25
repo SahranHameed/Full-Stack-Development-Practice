@@ -1,13 +1,26 @@
+import java.util.Scanner;
+
 public class Control_Flow_State {
     public static void main(String[] args) {
-        int number = 10;
+        System.out.println("Enter Your Exam Marks: ");
+        try (Scanner scan = new Scanner(System.in)) {
+            int number = scan.nextInt();
 
-        if (number > 0) {
-            System.out.println("The number is positive.");
-        } else if (number < 0) {
-            System.out.println("The number is negative.");
-        } else {
-            System.out.println("The number is zero.");
+            if (number <= 35) {
+                System.out.println("You are Fail");
+            } 
+            else if (number <= 50) {
+                System.out.println("You are Pass");
+            }
+            else if (number <= 85){
+                System.out.println("You are Excellent");
+            }
+            else if (number <= 100){
+                System.out.println("You are Outstanding");
+            }
+            else {
+                System.out.println("Invalid Marks");
+            }
         }
     }
     
