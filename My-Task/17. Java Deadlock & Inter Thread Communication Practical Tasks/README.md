@@ -247,3 +247,4 @@ This repository is part of the **Full-Stack Web Development Practicals** series.
 ## 📄 License
 
 This project is open source and available for educational purposes.
+
