@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-// Task 19 - Bus Reservation System
+// Task 19 & 20 - Bus Reservation System
 // Menu driven console app: add/view/update/delete bus, book/view/cancel ticket
 
 public class Main {
@@ -63,7 +63,7 @@ public class Main {
             }
         }
 
-        busList.add(new Bus(num, src, dest, cap));
+        busList.add(new Bus());
         System.out.println("Bus added successfully.");
     }
 
@@ -126,7 +126,7 @@ public class Main {
             if (b.getBusNumber().equals(num)) {
                 if (b.getAvailableSeats() > 0) {
                     b.setBookedSeats(b.getBookedSeats() + 1);
-                    bookingList.add(new Booking(pid, name, num, b.getSource(), b.getDestination()));
+                    bookingList.add(new Booking());
                     System.out.println("Ticket booked successfully.");
                     System.out.println("Route: " + b.getSource() + " -> " + b.getDestination());
                 } else {

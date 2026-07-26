@@ -9,5 +9,10 @@ public class Booking {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getBusNumber'");
     }
+
+    public void displayBooking() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'displayBooking'");
+    }
     
 }
