@@ -5,26 +5,26 @@
 ![Tasks](https://img.shields.io/badge/Tasks-3%2F3-blue?style=for-the-badge)
 ![Level](https://img.shields.io/badge/Level-Intermediate-orange?style=for-the-badge)
 
-> A collection of 3 practical Java programs using the Optional class to safely handle null values — including Student Search, Employee Lookup, and Book Library — built as part of a Full-Stack Web Development course.
+> 3 practical Java Optional class tasks — Student Search, Employee Lookup, and Book Library — built as part of a Full-Stack Web Development course.
 
 ---
 
 ## 📁 Project Structure
 
+All 3 tasks run one after another inside a single file.
+
 ```
 22. Java Optional Class/
 │
-├── Task01_StudentSearch.java     # Find student by ID using Optional
-├── Task02_EmployeeLookup.java    # Find employee using orElse()
-└── Task03_BookLibrary.java       # Find book by title using ifPresent()
+└── OptionalTasks.java     # Task 01 Student Search, Task 02 Employee Lookup, Task 03 Book Library
 ```
 
 ---
 
 ## 📋 Task Summary
 
-| # | Program | Description | Optional Method |
-|---|---------|-------------|----------------|
+| # | Task | Description | Optional Method |
+|---|------|-------------|-------------------|
 | 01 | Student Search | Find student by ID | `isPresent()` |
 | 02 | Employee Lookup | Find employee, return default if not found | `orElse()` |
 | 03 | Book Library | Find book by title, print if found | `ifPresent()` |
@@ -34,48 +34,38 @@
 ## ❓ Why Optional?
 
 ```java
-// WITHOUT Optional — DANGER! ❌
+// WITHOUT Optional - risky
 Student s = findStudent(999);
-System.out.println(s.getName()); // NullPointerException if s is null! 💥
+System.out.println(s.getName()); // NullPointerException if s is null
 
-// WITH Optional — SAFE! ✅
+// WITH Optional - safe
 Optional<Student> s = findStudent(999);
-s.ifPresent(st -> System.out.println(st.getName())); // Safe even if null!
+s.ifPresent(st -> System.out.println(st.getName())); // does nothing if empty, no crash
 ```
 
 ---
 
-## 🎯 Sample Outputs
+## 🎯 Actual Program Output
 
-### Task 01 — Student Search
 ```
-Searching for Student ID: 101
-Student found: Sahran Hameed ✅
+JAVA OPTIONAL CLASS DEMO
+=========================
 
-Searching for Student ID: 999
-Student not found ❌
-```
+Task 01: Student search (isPresent)
+Found: Sahran Hameed
+Student not found
 
-### Task 02 — Employee Lookup
-```
-Searching for Employee ID: 201
-Employee found: Alice | Salary: Rs.75,000 ✅
+Task 02: Employee lookup (orElse)
+Name: Alice | Salary: Rs.75000.0
+Name: Unknown | Salary: Rs.0.0 (default)
 
-Searching for Employee ID: 999
-Employee not found. Returning default employee.
-Default Employee: Unknown | Salary: Rs.0 📋
-```
+Task 03: Book library (ifPresent)
+Book found:
+Title  : Clean Code
+Author : Robert Martin
+Book not found in library
 
-### Task 03 — Book Library
-```
-Searching for book: "Clean Code"
-Book found!
-  Title  : Clean Code
-  Author : Robert Martin
-  ID     : B001 ✅
-
-Searching for book: "Unknown Book"
-Book not found in library. ❌
+All 3 Optional tasks completed.
 ```
 
 ---
@@ -85,30 +75,22 @@ Book not found in library. ❌
 ### 📚 Task 01 — isPresent() — Student Search
 ```java
 class Student {
-    int    id;
+    int id;
     String name;
-
-    Student(int id, String name) {
-        this.id   = id;
-        this.name = name;
-    }
 }
 
-// Method returns Optional<Student>
 static Optional<Student> findStudentById(int id, List<Student> students) {
     for (Student s : students) {
         if (s.id == id) {
-            return Optional.of(s);      // Found → wrap in Optional
+            return Optional.of(s);      // found -> wrap in Optional
         }
     }
-    return Optional.empty();            // Not found → empty Optional
+    return Optional.empty();            // not found -> empty Optional
 }
 
-// Use in main:
-Optional<Student> result = findStudentById(101, studentList);
-
+Optional<Student> result = findStudentById(101, students);
 if (result.isPresent()) {
-    System.out.println("Student found: " + result.get().name);
+    System.out.println("Found: " + result.get().name);
 } else {
     System.out.println("Student not found");
 }
@@ -116,49 +98,35 @@ if (result.isPresent()) {
 
 ### 👔 Task 02 — orElse() — Employee Lookup
 ```java
-// orElse() = return a DEFAULT value when not found
-Optional<Employee> result = findEmployee(999, employeeList);
-
-// If not found, use default employee object
-Employee emp = result.orElse(new Employee(0, "Unknown", 0));
-System.out.println("Name: " + emp.name + " | Salary: " + emp.salary);
+// orElse() returns a default value when nothing was found
+Employee emp = findEmployee(999, employees).orElse(new Employee(0, "Unknown", 0));
+System.out.println("Name: " + emp.name + " | Salary: Rs." + emp.salary);
 ```
 
 ### 📖 Task 03 — ifPresent() — Book Library
 ```java
-// ifPresent() = run code ONLY if value exists
-Optional<Book> result = findBookByTitle("Clean Code", bookList);
+// ifPresent() runs the given code ONLY if a value exists
+Optional<Book> book = findBookByTitle("Clean Code", books);
 
-result.ifPresent(book -> {
-    System.out.println("Title  : " + book.title);
-    System.out.println("Author : " + book.author);
+book.ifPresent(b -> {
+    System.out.println("Title  : " + b.title);
+    System.out.println("Author : " + b.author);
 });
-// If not found → nothing happens, no crash! ✅
+// if not found, nothing happens - no crash
 ```
 
 ---
 
-## 🔍 Optional Methods Comparison
+## 🔍 Optional Methods Used
 
 | Method | When to Use | Behavior |
 |--------|-------------|----------|
 | `isPresent()` | Check if value exists | Returns `true` or `false` |
-| `get()` | Get the value (use with isPresent) | Returns value or throws exception |
-| `orElse(default)` | Get value or default | Returns value or default object |
-| `ifPresent(action)` | Run code if value exists | Runs lambda if value present |
-| `Optional.of(value)` | Wrap a value | Creates Optional with value |
-| `Optional.empty()` | No value | Creates empty Optional |
-
----
-
-## 🔍 Optional vs Null Check
-
-| | Without Optional | With Optional |
-|---|---|---|
-| Null check | `if (s != null)` | `s.isPresent()` |
-| Default value | `s != null ? s : default` | `s.orElse(default)` |
-| Run if found | `if (s != null) { use(s) }` | `s.ifPresent(use)` |
-| Safety | ❌ Can forget to check | ✅ Forces null handling |
+| `get()` | Get the value (only after checking isPresent) | Returns value or throws exception |
+| `orElse(default)` | Get value or a default | Returns value or the default object |
+| `ifPresent(action)` | Run code only if value exists | Runs lambda if present, else does nothing |
+| `Optional.of(value)` | Wrap a known non-null value | Creates an Optional holding that value |
+| `Optional.empty()` | No value found | Creates an empty Optional |
 
 ---
 
@@ -182,24 +150,23 @@ cd "Full-Stack-Development-Practice/My-Task/22. Java Optional Class"
 
 **3. Compile**
 ```bash
-javac Task01_StudentSearch.java
+javac OptionalTasks.java
 ```
 
 **4. Run**
 ```bash
-java Task01_StudentSearch
+java OptionalTasks
 ```
 
 ---
 
 ## 📌 Code Standards Followed
 
-- ✅ `Javadoc /** */` comments explaining Optional usage
+- ✅ Comments explaining Optional usage
 - ✅ `Optional.of()` and `Optional.empty()` used correctly
 - ✅ `isPresent()`, `orElse()`, `ifPresent()` all demonstrated
-- ✅ No direct `null` returned from methods
-- ✅ `PascalCase` for class names
-- ✅ Clean and readable output
+- ✅ No direct `null` returned from any search method
+- ✅ `PascalCase` for class names, clean and readable output
 
 ---
 
