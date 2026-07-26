@@ -43,6 +43,7 @@ public class PrinterScanner {
             }
         });
 
+        
         Thread user2 = new Thread(() -> {
             synchronized (scanner) {
                 System.out.println("User2 locked Scanner, waiting for Printer...");
