@@ -15,7 +15,6 @@ public class BankTransfer {
             this.name = name;
             this.balance = balance;
         }
-
     }
 
     public static void main(String[] args) throws InterruptedException {
