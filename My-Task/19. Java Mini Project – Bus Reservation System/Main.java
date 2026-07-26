@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-// Task 19 & 20 - Bus Reservation System
+// Task 19 - Bus Reservation System
 // Menu driven console app: add/view/update/delete bus, book/view/cancel ticket
 
 public class Main {
