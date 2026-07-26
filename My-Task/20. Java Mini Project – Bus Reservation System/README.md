@@ -5,21 +5,21 @@
 ![Type](https://img.shields.io/badge/Type-Mini%20Project-purple?style=for-the-badge)
 ![Level](https://img.shields.io/badge/Level-Advanced-red?style=for-the-badge)
 
-> A menu-driven Java console application implementing a complete Bus Reservation System with Bus Management and Ticket Booking — built as part of a Full-Stack Web Development course.
+> A menu-driven Java console application implementing a Bus Reservation System with Bus Management and Ticket Booking — built as part of a Full-Stack Web Development course.
 
 ---
 
 ## 📁 Project Structure
 
 ```
-19. Java Mini Project – Bus Reservation System/
+20. Java Mini Project - Bus Reservation System/
 │
-├── Bus.java              # Bus class with bus details
-├── Booking.java          # Booking class with passenger details
-├── BusManager.java       # Module 01 – Bus Management (Add, View, Update, Delete)
-├── BookingManager.java   # Module 02, 03, 04 – Ticket Booking, View, Cancel
-└── Main.java             # Menu-driven main application
+├── Bus.java       # Bus class with bus details
+├── Booking.java   # Booking class with passenger details
+└── Main.java      # Menu-driven app - all Add/View/Update/Delete/Book/Cancel logic
 ```
+
+> Bus management and booking logic both live inside `Main.java` as static methods (no separate `BusManager`/`BookingManager` classes).
 
 ---
 
@@ -30,7 +30,7 @@
 | 01 | Bus Management | Add, View, Update, Delete buses |
 | 02 | Ticket Booking | Book a seat for a passenger |
 | 03 | View Bookings | Display all booking details |
-| 04 | Cancel Booking | Cancel booking and free seat |
+| 04 | Cancel Booking | Cancel booking and free the seat |
 | 05 | Exit | Safely exit the application |
 
 ---
@@ -38,9 +38,9 @@
 ## 🚌 Menu Options
 
 ```
-========================================
-       BUS RESERVATION SYSTEM
-========================================
+=============================
+   BUS RESERVATION SYSTEM
+=============================
 1. Add Bus
 2. View All Buses
 3. Update Bus Capacity
@@ -49,49 +49,45 @@
 6. View All Bookings
 7. Cancel Booking
 8. Exit
-========================================
 Enter your choice:
 ```
 
 ---
 
-## 🎯 Sample Outputs
+## 🎯 Sample Run
 
 ### Add Bus
 ```
-Enter Bus Number    : BUS-101
-Enter Source        : Chennai
-Enter Destination   : Coimbatore
-Enter Capacity      : 40
-Bus added successfully! ✅
+-- Add Bus --
+Bus Number  : BUS-101
+Source      : Chennai
+Destination : Coimbatore
+Capacity    : 40
+Bus added successfully.
 ```
 
 ### View All Buses
 ```
-══════════════════════════════════════════════════
-Bus No   Source      Destination   Capacity  Booked
-══════════════════════════════════════════════════
-BUS-101  Chennai     Coimbatore    40        2
-BUS-102  Madurai     Trichy        35        0
-══════════════════════════════════════════════════
+-- All Buses --
+Bus No     Source       Destination     Capacity   Booked     Available
+BUS-101    Chennai      Coimbatore      40         1          39
 ```
 
 ### Book Ticket
 ```
-Enter Passenger Name : Sahran Hameed
-Enter Passenger ID   : P001
-Enter Bus Number     : BUS-101
-Seat available!
-Ticket booked successfully! ✅
-Booking ID: P001 | Bus: BUS-101 | Chennai → Coimbatore
+-- Book Ticket --
+Passenger Name : Sahran Hameed
+Passenger ID   : P001
+Bus Number     : BUS-101
+Ticket booked successfully.
+Route: Chennai -> Coimbatore
 ```
 
 ### Cancel Booking
 ```
+-- Cancel Booking --
 Enter Passenger ID: P001
-Booking found!
-Booking cancelled successfully! ✅
-Seat count updated.
+Booking cancelled.
 ```
 
 ---
@@ -104,10 +100,9 @@ public class Bus {
     private String busNumber;
     private String source;
     private String destination;
-    private int    capacity;
-    private int    bookedSeats;
+    private int capacity;
+    private int bookedSeats;
 
-    // Getters and Setters
     public int getAvailableSeats() {
         return capacity - bookedSeats;
     }
@@ -127,23 +122,23 @@ public class Booking {
 
 ### 📋 Menu-Driven Main
 ```java
-Scanner sc = new Scanner(System.in);
 int choice;
 
 do {
     displayMenu();
     choice = sc.nextInt();
+    sc.nextLine();
 
     switch (choice) {
-        case 1: addBus();         break;
-        case 2: viewAllBuses();   break;
-        case 3: updateCapacity(); break;
-        case 4: deleteBus();      break;
-        case 5: bookTicket();     break;
-        case 6: viewBookings();   break;
-        case 7: cancelBooking();  break;
-        case 8: System.out.println("Thank you! Goodbye!"); break;
-        default: System.out.println("Invalid choice!");
+        case 1: addBus(); break;
+        case 2: viewAllBuses(); break;
+        case 3: updateBus(); break;
+        case 4: deleteBus(); break;
+        case 5: bookTicket(); break;
+        case 6: viewBookings(); break;
+        case 7: cancelBooking(); break;
+        case 8: System.out.println("Thank you, goodbye!"); break;
+        default: System.out.println("Invalid choice, try again.");
     }
 } while (choice != 8);
 ```
@@ -153,11 +148,12 @@ do {
 ## 🔍 Validation Rules
 
 ```
-✅ Passenger ID must be unique
-✅ Cannot book if no seats available
-✅ Cannot cancel non-existing booking
-✅ Cannot delete non-existing bus
-✅ Seat count updates after booking and cancellation
+- Bus number must be unique when adding a bus
+- Passenger ID must be unique when booking
+- Cannot book if no seats available
+- Cannot cancel a booking that doesn't exist
+- Cannot delete/update a bus that doesn't exist
+- Seat count updates correctly after booking and cancellation
 ```
 
 ---
@@ -182,7 +178,7 @@ cd "Full-Stack-Development-Practice/My-Task/19. Java Mini Project - Bus Reservat
 
 **3. Compile all files**
 ```bash
-javac *.java
+javac Bus.java Booking.java Main.java
 ```
 
 **4. Run the application**
@@ -194,13 +190,12 @@ java Main
 
 ## 📌 Code Standards Followed
 
-- ✅ `Javadoc /** */` comments explaining project logic
-- ✅ `PascalCase` for class names
-- ✅ `camelCase` for variable and method names
+- ✅ Comments explaining project logic
+- ✅ `PascalCase` for class names, `camelCase` for variables/methods
 - ✅ OOP principles applied (classes, objects, methods)
-- ✅ Input validation implemented
-- ✅ ArrayList used for dynamic storage
-- ✅ Clean menu-driven interface
+- ✅ Input validation implemented (unique IDs, seat checks)
+- ✅ `ArrayList` used for dynamic storage of buses and bookings
+- ✅ Clean menu-driven console interface
 - ✅ Proper success and error messages
 
 ---

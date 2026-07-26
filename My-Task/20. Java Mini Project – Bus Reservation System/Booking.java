@@ -1,18 +1,27 @@
+// Booking class - stores one passenger's booking
 public class Booking {
 
-    public String getPassengerId() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPassengerId'");
+    private String passengerId;
+    private String passengerName;
+    private String busNumber;
+    private String source;
+    private String destination;
+
+    public Booking(String passengerId, String passengerName, String busNumber,
+                    String source, String destination) {
+        this.passengerId = passengerId;
+        this.passengerName = passengerName;
+        this.busNumber = busNumber;
+        this.source = source;
+        this.destination = destination;
     }
 
-    public String getBusNumber() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getBusNumber'");
-    }
+    public String getPassengerId() { return passengerId; }
+    public String getPassengerName() { return passengerName; }
+    public String getBusNumber() { return busNumber; }
 
     public void displayBooking() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'displayBooking'");
+        System.out.printf("%-10s %-15s %-10s %-12s %-15s%n",
+            passengerId, passengerName, busNumber, source, destination);
     }
-    
 }
