@@ -4,7 +4,7 @@
 // synchronized keyword used on the account objects themselves,
 // deadlock shown first, then prevented with consistent lock ordering.
 
-public class BankTransferSystem {
+public class Task03_BankTransferSystem {
 
     static class Account {
         int id;
