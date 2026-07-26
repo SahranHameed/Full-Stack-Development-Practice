@@ -5,69 +5,60 @@
 ![Tasks](https://img.shields.io/badge/Tasks-5%2F5-blue?style=for-the-badge)
 ![Level](https://img.shields.io/badge/Level-Intermediate-orange?style=for-the-badge)
 
-> A practical Java guide demonstrating all File Handling operations — Create Folder, Create File, Write File, Read File, and Delete File — built as part of a Full-Stack Web Development course.
+> A practical Java program demonstrating all File Handling operations — Create Folder, Create File, Write File, Read File, and Delete File — built as part of a Full-Stack Web Development course.
 
 ---
 
 ## 📁 Project Structure
 
+All 5 operations run one after another inside a single file.
+
 ```
 18. Java File Handling/
 │
-├── Task01_CreateFolder.java      # Create a new directory/folder
-├── Task02_CreateFile.java        # Create a new file
-├── Task03_WriteFile.java         # Write data into a file
-├── Task04_ReadFile.java          # Read data from a file
-└── Task05_DeleteFile.java        # Delete an existing file
+└── FileHandling.java     # Create Folder -> Create File -> Write -> Read -> Delete
 ```
 
 ---
 
 ## 📋 Task Summary
 
-| # | Program | Description | Class Used | Method |
-|---|---------|-------------|------------|--------|
-| 01 | Create Folder | Create a new directory | `File` | `mkdir()` |
-| 02 | Create File | Create a new file | `File` | `createNewFile()` |
-| 03 | Write File | Write text into a file | `FileWriter` | `write()` |
-| 04 | Read File | Read content from file | `Scanner` | `hasNextLine()` |
-| 05 | Delete File | Delete an existing file | `File` | `delete()` |
+| # | Step | Class Used | Method |
+|---|------|------------|--------|
+| 01 | Create Folder | `File` | `mkdir()` |
+| 02 | Create File | `File` | `createNewFile()` |
+| 03 | Write File | `FileWriter` | `write()` |
+| 04 | Read File | `Scanner` | `hasNextLine()` |
+| 05 | Delete File | `File` | `delete()` |
 
 ---
 
-## 🎯 Sample Outputs
+## 🎯 Actual Program Output
 
-### Task 01 — Create Folder
 ```
-Folder created successfully: MyFolder ✅
-```
+JAVA FILE HANDLING DEMO
+========================
 
-### Task 02 — Create File
-```
-File created successfully: myfile.txt ✅
-```
+1. Create Folder
+Folder created: MyJavaFolder
 
-### Task 03 — Write File
-```
-Writing to file...
-Data written successfully! ✅
-Content: "Hello, Java File Handling!"
-```
+2. Create File
+File created: mydata.txt
 
-### Task 04 — Read File
-```
-Reading file content:
-─────────────────────
+3. Write File
+Data written successfully.
+
+4. Read File
+File Content:
 Hello, Java File Handling!
 This is line 2.
 This is line 3.
-─────────────────────
-File read successfully! ✅
-```
+File read successfully.
 
-### Task 05 — Delete File
-```
-File deleted successfully: myfile.txt ✅
+5. Delete File
+File deleted: mydata.txt
+
+All file operations completed.
 ```
 
 ---
@@ -76,79 +67,62 @@ File deleted successfully: myfile.txt ✅
 
 ### 📁 Create Folder — File Class
 ```java
-import java.io.File;
-
-File folder = new File("MyFolder");
+File folder = new File("MyJavaFolder");
 
 if (folder.mkdir()) {
     System.out.println("Folder created: " + folder.getName());
 } else {
-    System.out.println("Folder already exists!");
+    System.out.println("Folder already exists, skipping.");
 }
 ```
 
 ### 📄 Create File — File Class
 ```java
-import java.io.File;
-import java.io.IOException;
-
-File file = new File("myfile.txt");
+File file = new File("mydata.txt");
 
 try {
     if (file.createNewFile()) {
         System.out.println("File created: " + file.getName());
     } else {
-        System.out.println("File already exists!");
+        System.out.println("File already exists.");
     }
 } catch (IOException e) {
-    System.out.println("Error: " + e.getMessage());
+    System.out.println("Could not create file: " + e.getMessage());
 }
 ```
 
-### ✍️ Write File — FileWriter Class
+### ✍️ Write File — FileWriter Class (try-with-resources closes it automatically)
 ```java
-import java.io.FileWriter;
-import java.io.IOException;
-
-try {
-    FileWriter writer = new FileWriter("myfile.txt");
-    writer.write("Hello, Java File Handling!");
-    writer.write("\nThis is line 2.");
-    writer.close(); // Always close after writing!
-    System.out.println("Written successfully!");
+try (FileWriter writer = new FileWriter("mydata.txt")) {
+    writer.write("Hello, Java File Handling!\n");
+    writer.write("This is line 2.\n");
+    writer.write("This is line 3.\n");
+    System.out.println("Data written successfully.");
 } catch (IOException e) {
-    System.out.println("Error: " + e.getMessage());
+    System.out.println("Could not write to file: " + e.getMessage());
 }
 ```
 
 ### 📖 Read File — Scanner Class
 ```java
-import java.io.File;
-import java.util.Scanner;
-import java.io.IOException;
-
-try {
-    File file    = new File("myfile.txt");
-    Scanner scan = new Scanner(file);
-
-    while (scan.hasNextLine()) {        // Check if more lines exist
-        String line = scan.nextLine();  // Read line by line
-        System.out.println(line);
+try (Scanner scan = new Scanner(new File("mydata.txt"))) {
+    while (scan.hasNextLine()) {
+        System.out.println(scan.nextLine());
     }
-    scan.close(); // Always close after reading!
+    System.out.println("File read successfully.");
 } catch (IOException e) {
-    System.out.println("Error: " + e.getMessage());
+    System.out.println("Could not read file: " + e.getMessage());
 }
 ```
 
 ### 🗑️ Delete File — File Class
 ```java
-File file = new File("myfile.txt");
+File deleteFile = new File("mydata.txt");
 
-if (file.delete()) {
-    System.out.println("File deleted: " + file.getName());
+if (deleteFile.delete()) {
+    System.out.println("File deleted: " + deleteFile.getName());
 } else {
-    System.out.println("File not found!");
+    System.out.println("Could not find file to delete.");
 }
 ```
 
@@ -170,9 +144,9 @@ if (file.delete()) {
 
 ```
 1. Always use try-catch for IOException
-2. Always close FileWriter and Scanner after use
-3. Check if file exists before reading/deleting
-4. Use file.getName() to display file name
+2. Close FileWriter and Scanner after use (done here with try-with-resources)
+3. Check the return value of mkdir()/createNewFile()/delete() instead of assuming success
+4. Use file.getName() to display file name in output
 ```
 
 ---
@@ -197,23 +171,22 @@ cd "Full-Stack-Development-Practice/My-Task/18. Java File Handling"
 
 **3. Compile**
 ```bash
-javac Task01_CreateFolder.java
+javac FileHandling.java
 ```
 
 **4. Run**
 ```bash
-java Task01_CreateFolder
+java FileHandling
 ```
 
 ---
 
 ## 📌 Code Standards Followed
 
-- ✅ `Javadoc /** */` comments explaining file handling logic
+- ✅ Comments explaining file handling logic
 - ✅ `IOException` handled with try-catch in all file operations
-- ✅ File resources closed after use (`writer.close()`, `scan.close()`)
-- ✅ `PascalCase` for class names
-- ✅ `camelCase` for variable names
+- ✅ File resources closed automatically with try-with-resources
+- ✅ `PascalCase` for class names, `camelCase` for variables
 - ✅ Clear success and error messages displayed
 
 ---
