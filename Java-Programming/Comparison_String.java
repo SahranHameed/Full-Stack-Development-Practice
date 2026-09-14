@@ -19,7 +19,7 @@ public class Comparison_String {
         String a = "one"; //one
         String b = "one"; //Reference of one
         String c = b; //Reference of one store in c
-        System.out.println(c); // final output is one
+        System.out.println(a + " -> " + c); // final output is one
 
     ////////////////////////////////////
         String A = "two"; //Save in Pool Referance
@@ -28,16 +28,17 @@ public class Comparison_String {
         System.out.println(A==C); // false (Both Referance address is not same)
 
 /////////////////////////////////////////////
-        Scanner input = new Scanner(System.in);
-        System.out.print("\nMeghana is Dead? ");
+        try (Scanner input = new Scanner(System.in)) {
+            System.out.print("\nMeghana is Dead? ");
 
-        String meghana = input.nextLine();
+            String meghana = input.nextLine();
 
-        if ((meghana.equals("yes"))) {
-            System.out.println("Surya Meets Ramya");
-        }
-        else{
-            System.out.println("Surya weds meghana");
+            if ((meghana.equals("yes"))) {
+                System.out.println("Surya Meets Ramya");
+            }
+            else {
+                System.out.println("Surya weds meghana");
+            }
         }
     }
 }
