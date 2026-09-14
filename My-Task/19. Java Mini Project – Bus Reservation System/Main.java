@@ -63,7 +63,7 @@ public class Main {
             }
         }
 
-        busList.add(new Bus());
+        busList.add(new Bus(dest, dest, dest, cap));
         System.out.println("Bus added successfully.");
     }
 
@@ -126,7 +126,7 @@ public class Main {
             if (b.getBusNumber().equals(num)) {
                 if (b.getAvailableSeats() > 0) {
                     b.setBookedSeats(b.getBookedSeats() + 1);
-                    bookingList.add(new Booking());
+                    bookingList.add(new Booking(num, num, num, num, num));
                     System.out.println("Ticket booked successfully.");
                     System.out.println("Route: " + b.getSource() + " -> " + b.getDestination());
                 } else {
