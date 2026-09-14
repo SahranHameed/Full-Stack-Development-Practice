@@ -1,32 +1,17 @@
 public class Variable
 {
     static int a = 10;
-    public static void main(String[]args)
-    {
-        System.out.println(a);
-    }
-}
+    int b = 10;
 
-
-// Instant Variable Access//
-public class Variable 
-{
-   int a = 10;
     public static void main(String[] args)
     {
+        System.out.println("Static variable: " + a);
+
         Variable object = new Variable();
-        System.out.print(object.a);   
-    }
-}
+        System.out.println("Instance variable: " + object.b);
 
-
-// Local Variable Access//
-public class Variable 
-{
-   int a = 10;
-    public static void main(String[] args)
-    {
-            System.out.print(a);   
+        int localVariable = 10;
+        System.out.println("Local variable: " + localVariable);
     }
 }
     
