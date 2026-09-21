@@ -33,7 +33,7 @@ class Array{
         System.out.println("------------------------------------------------------");
 
 
-// 2 in Array Using For Loop
+// 2 Table in Array Using For Loop
         for(int i=1; i<=10; i++){
             System.out.println(i + "x2 = " + (i*2));
         }
@@ -48,8 +48,23 @@ class Array{
             for(int i=1; i<=10; i++){
                 System.out.println(table + "x" + i + " = " + table*i);
             }
+            System.out.println("------------------------------------------------------");
+
+
+// Get input size of an Array and print the elements
+            Scanner store = new Scanner(System.in);
+            System.out.println("Enter the size of an Array: ");
+            int size = store.nextInt();
+            int[] arr = new int[size];
+            System.out.println("Enter the elements of an Array: ");
+            for(int i=0; i<size; i++){
+                arr[i] = store.nextInt();
+            }
+            System.out.println("Elements of an Array are: ");
+            for(int i=0; i<size; i++){
+                System.out.println(arr[i]);
+            }
         }
     }
-
 
 
