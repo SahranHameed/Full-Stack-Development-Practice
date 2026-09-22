@@ -23,4 +23,3 @@ public class Nested_Loop {
         System.out.println("------------------------------------------------------");
     }
 }
-
