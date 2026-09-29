@@ -11,16 +11,5 @@ public class While_Loop {
             i++;
         }
         System.out.println("------------------------------------------------------");
-
-
-// Random Number Generator Using While Loop
-        Random random = new Random();
-        int randomNumber = 0;
-
-        while (randomNumber != 5)
-        {
-            randomNumber = random.nextInt(10); // Generate a random number between 0 and 9
-            System.out.println(randomNumber);
-        }
     }
 }
