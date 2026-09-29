@@ -7,6 +7,7 @@ public class Hotel_Class {
 
     public static void main(String[] args) {
 
+    // Create an object of the Hotel_Class
         Hotel_Class Server1 = new Hotel_Class();
         
         System.out.println("Coffee Price: $" + Server1.CoffeePrice);
