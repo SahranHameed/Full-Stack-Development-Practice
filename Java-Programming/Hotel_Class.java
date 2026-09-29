@@ -1,6 +1,4 @@
-import java.util.Scanner;
-
-public class Hotel {
+public class Hotel_Class {
 
     int CoffeePrice = 5;
     int TeaPrice = 10;
@@ -9,7 +7,7 @@ public class Hotel {
 
     public static void main(String[] args) {
 
-        Hotel Server1 = new Hotel();
+        Hotel_Class Server1 = new Hotel_Class();
         
         System.out.println("Coffee Price: $" + Server1.CoffeePrice);
         System.out.println("Tea Price: $" + Server1.TeaPrice);
