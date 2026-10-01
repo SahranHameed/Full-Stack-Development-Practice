@@ -1,3 +1,5 @@
+// Remainder.java
+
 public class Remainder {
     int getsoap (int money)
     {
@@ -6,6 +8,7 @@ public class Remainder {
         return balance; 
     }
 
+// Main method
     public static void main(String[] args) {
         Remainder obj = new Remainder();
         int balance = obj.getsoap(35);
